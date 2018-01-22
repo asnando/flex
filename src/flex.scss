@@ -30,6 +30,15 @@ $vps: (
   flex: 0 0 auto;
 }
 
+@mixin col-original {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
 @mixin row-start {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
@@ -113,6 +122,10 @@ $vps: (
 
   @media only screen and (min-width: $vp-width) {
 
+    .col-#{$vp-name} {
+      @include col-original();
+    }
+
     @for $index from 1 through $number-of-cols {
       .col-#{$vp-name}-#{$index} {
         @include col($index);
@@ -124,7 +137,7 @@ $vps: (
         @include col-offset($index);
       }
     }
-    
+
     .start-#{$vp-name} {
       @include row-start;
     }
