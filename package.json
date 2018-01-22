@@ -1,0 +1,25 @@
+{
+  "name": "flex",
+  "version": "0.0.1",
+  "description": "📦  Flexible CSS",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fefranzoni/flex.git"
+  },
+  "author": "Fernando Franzoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fefranzoni/flex/issues"
+  },
+  "homepage": "https://github.com/fefranzoni/flex#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0"
+  }
+}
