@@ -20,85 +20,269 @@
   flex-wrap: wrap; }
 
 @media only screen and (min-width: 0px) {
+  .col {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    max-width: 100%;
+    width: 100%; }
+
+  .col-1 {
+    -ms-flex-preferred-size: 8.3333333333%;
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
+    width: 8.3333333333%;
+    padding: 1em; }
+
+  .col-2 {
+    -ms-flex-preferred-size: 16.6666666667%;
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
+    width: 16.6666666667%;
+    padding: 1em; }
+
+  .col-3 {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
+    width: 25%;
+    padding: 1em; }
+
+  .col-4 {
+    -ms-flex-preferred-size: 33.3333333333%;
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
+    width: 33.3333333333%;
+    padding: 1em; }
+
+  .col-5 {
+    -ms-flex-preferred-size: 41.6666666667%;
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
+    width: 41.6666666667%;
+    padding: 1em; }
+
+  .col-6 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
+    width: 50%;
+    padding: 1em; }
+
+  .col-7 {
+    -ms-flex-preferred-size: 58.3333333333%;
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
+    width: 58.3333333333%;
+    padding: 1em; }
+
+  .col-8 {
+    -ms-flex-preferred-size: 66.6666666667%;
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
+    width: 66.6666666667%;
+    padding: 1em; }
+
+  .col-9 {
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
+    width: 75%;
+    padding: 1em; }
+
+  .col-10 {
+    -ms-flex-preferred-size: 83.3333333333%;
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+    width: 83.3333333333%;
+    padding: 1em; }
+
+  .col-11 {
+    -ms-flex-preferred-size: 91.6666666667%;
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
+    width: 91.6666666667%;
+    padding: 1em; }
+
+  .col-12 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+    padding: 1em; }
+
+  .col-offset-0 {
+    margin-left: 0%; }
+
+  .col-offset-1 {
+    margin-left: 8.3333333333%; }
+
+  .col-offset-2 {
+    margin-left: 16.6666666667%; }
+
+  .col-offset-3 {
+    margin-left: 25%; }
+
+  .col-offset-4 {
+    margin-left: 33.3333333333%; }
+
+  .col-offset-5 {
+    margin-left: 41.6666666667%; }
+
+  .col-offset-6 {
+    margin-left: 50%; }
+
+  .col-offset-7 {
+    margin-left: 58.3333333333%; }
+
+  .col-offset-8 {
+    margin-left: 66.6666666667%; }
+
+  .col-offset-9 {
+    margin-left: 75%; }
+
+  .col-offset-10 {
+    margin-left: 83.3333333333%; }
+
+  .col-offset-11 {
+    margin-left: 91.6666666667%; }
+
+  .start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    text-align: start; }
+
+  .center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center; }
+
+  .end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    text-align: end; }
+
+  .top {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+
+  .middle {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
+  .bottom {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+
+  .around {
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+
+  .between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; } }
+@media only screen and (min-width: 0px) {
   .col-xs {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
 
   .col-xs-1 {
     -ms-flex-preferred-size: 8.3333333333%;
     flex-basis: 8.3333333333%;
     max-width: 8.3333333333%;
-    width: 8.3333333333%; }
+    width: 8.3333333333%;
+    padding: 1em; }
 
   .col-xs-2 {
     -ms-flex-preferred-size: 16.6666666667%;
     flex-basis: 16.6666666667%;
     max-width: 16.6666666667%;
-    width: 16.6666666667%; }
+    width: 16.6666666667%;
+    padding: 1em; }
 
   .col-xs-3 {
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
     max-width: 25%;
-    width: 25%; }
+    width: 25%;
+    padding: 1em; }
 
   .col-xs-4 {
     -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    width: 33.3333333333%; }
+    width: 33.3333333333%;
+    padding: 1em; }
 
   .col-xs-5 {
     -ms-flex-preferred-size: 41.6666666667%;
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
-    width: 41.6666666667%; }
+    width: 41.6666666667%;
+    padding: 1em; }
 
   .col-xs-6 {
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
     max-width: 50%;
-    width: 50%; }
+    width: 50%;
+    padding: 1em; }
 
   .col-xs-7 {
     -ms-flex-preferred-size: 58.3333333333%;
     flex-basis: 58.3333333333%;
     max-width: 58.3333333333%;
-    width: 58.3333333333%; }
+    width: 58.3333333333%;
+    padding: 1em; }
 
   .col-xs-8 {
     -ms-flex-preferred-size: 66.6666666667%;
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    width: 66.6666666667%; }
+    width: 66.6666666667%;
+    padding: 1em; }
 
   .col-xs-9 {
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
     max-width: 75%;
-    width: 75%; }
+    width: 75%;
+    padding: 1em; }
 
   .col-xs-10 {
     -ms-flex-preferred-size: 83.3333333333%;
     flex-basis: 83.3333333333%;
     max-width: 83.3333333333%;
-    width: 83.3333333333%; }
+    width: 83.3333333333%;
+    padding: 1em; }
 
   .col-xs-11 {
     -ms-flex-preferred-size: 91.6666666667%;
     flex-basis: 91.6666666667%;
     max-width: 91.6666666667%;
-    width: 91.6666666667%; }
+    width: 91.6666666667%;
+    padding: 1em; }
 
   .col-xs-12 {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    padding: 1em; }
 
   .col-xs-offset-0 {
     margin-left: 0%; }
@@ -184,79 +368,92 @@
     flex-grow: 1;
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
 
   .col-sm-1 {
     -ms-flex-preferred-size: 8.3333333333%;
     flex-basis: 8.3333333333%;
     max-width: 8.3333333333%;
-    width: 8.3333333333%; }
+    width: 8.3333333333%;
+    padding: 1em; }
 
   .col-sm-2 {
     -ms-flex-preferred-size: 16.6666666667%;
     flex-basis: 16.6666666667%;
     max-width: 16.6666666667%;
-    width: 16.6666666667%; }
+    width: 16.6666666667%;
+    padding: 1em; }
 
   .col-sm-3 {
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
     max-width: 25%;
-    width: 25%; }
+    width: 25%;
+    padding: 1em; }
 
   .col-sm-4 {
     -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    width: 33.3333333333%; }
+    width: 33.3333333333%;
+    padding: 1em; }
 
   .col-sm-5 {
     -ms-flex-preferred-size: 41.6666666667%;
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
-    width: 41.6666666667%; }
+    width: 41.6666666667%;
+    padding: 1em; }
 
   .col-sm-6 {
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
     max-width: 50%;
-    width: 50%; }
+    width: 50%;
+    padding: 1em; }
 
   .col-sm-7 {
     -ms-flex-preferred-size: 58.3333333333%;
     flex-basis: 58.3333333333%;
     max-width: 58.3333333333%;
-    width: 58.3333333333%; }
+    width: 58.3333333333%;
+    padding: 1em; }
 
   .col-sm-8 {
     -ms-flex-preferred-size: 66.6666666667%;
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    width: 66.6666666667%; }
+    width: 66.6666666667%;
+    padding: 1em; }
 
   .col-sm-9 {
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
     max-width: 75%;
-    width: 75%; }
+    width: 75%;
+    padding: 1em; }
 
   .col-sm-10 {
     -ms-flex-preferred-size: 83.3333333333%;
     flex-basis: 83.3333333333%;
     max-width: 83.3333333333%;
-    width: 83.3333333333%; }
+    width: 83.3333333333%;
+    padding: 1em; }
 
   .col-sm-11 {
     -ms-flex-preferred-size: 91.6666666667%;
     flex-basis: 91.6666666667%;
     max-width: 91.6666666667%;
-    width: 91.6666666667%; }
+    width: 91.6666666667%;
+    padding: 1em; }
 
   .col-sm-12 {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    padding: 1em; }
 
   .col-sm-offset-0 {
     margin-left: 0%; }
@@ -342,79 +539,92 @@
     flex-grow: 1;
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
 
   .col-md-1 {
     -ms-flex-preferred-size: 8.3333333333%;
     flex-basis: 8.3333333333%;
     max-width: 8.3333333333%;
-    width: 8.3333333333%; }
+    width: 8.3333333333%;
+    padding: 1em; }
 
   .col-md-2 {
     -ms-flex-preferred-size: 16.6666666667%;
     flex-basis: 16.6666666667%;
     max-width: 16.6666666667%;
-    width: 16.6666666667%; }
+    width: 16.6666666667%;
+    padding: 1em; }
 
   .col-md-3 {
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
     max-width: 25%;
-    width: 25%; }
+    width: 25%;
+    padding: 1em; }
 
   .col-md-4 {
     -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    width: 33.3333333333%; }
+    width: 33.3333333333%;
+    padding: 1em; }
 
   .col-md-5 {
     -ms-flex-preferred-size: 41.6666666667%;
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
-    width: 41.6666666667%; }
+    width: 41.6666666667%;
+    padding: 1em; }
 
   .col-md-6 {
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
     max-width: 50%;
-    width: 50%; }
+    width: 50%;
+    padding: 1em; }
 
   .col-md-7 {
     -ms-flex-preferred-size: 58.3333333333%;
     flex-basis: 58.3333333333%;
     max-width: 58.3333333333%;
-    width: 58.3333333333%; }
+    width: 58.3333333333%;
+    padding: 1em; }
 
   .col-md-8 {
     -ms-flex-preferred-size: 66.6666666667%;
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    width: 66.6666666667%; }
+    width: 66.6666666667%;
+    padding: 1em; }
 
   .col-md-9 {
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
     max-width: 75%;
-    width: 75%; }
+    width: 75%;
+    padding: 1em; }
 
   .col-md-10 {
     -ms-flex-preferred-size: 83.3333333333%;
     flex-basis: 83.3333333333%;
     max-width: 83.3333333333%;
-    width: 83.3333333333%; }
+    width: 83.3333333333%;
+    padding: 1em; }
 
   .col-md-11 {
     -ms-flex-preferred-size: 91.6666666667%;
     flex-basis: 91.6666666667%;
     max-width: 91.6666666667%;
-    width: 91.6666666667%; }
+    width: 91.6666666667%;
+    padding: 1em; }
 
   .col-md-12 {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    padding: 1em; }
 
   .col-md-offset-0 {
     margin-left: 0%; }
@@ -500,79 +710,92 @@
     flex-grow: 1;
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
 
   .col-lg-1 {
     -ms-flex-preferred-size: 8.3333333333%;
     flex-basis: 8.3333333333%;
     max-width: 8.3333333333%;
-    width: 8.3333333333%; }
+    width: 8.3333333333%;
+    padding: 1em; }
 
   .col-lg-2 {
     -ms-flex-preferred-size: 16.6666666667%;
     flex-basis: 16.6666666667%;
     max-width: 16.6666666667%;
-    width: 16.6666666667%; }
+    width: 16.6666666667%;
+    padding: 1em; }
 
   .col-lg-3 {
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
     max-width: 25%;
-    width: 25%; }
+    width: 25%;
+    padding: 1em; }
 
   .col-lg-4 {
     -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    width: 33.3333333333%; }
+    width: 33.3333333333%;
+    padding: 1em; }
 
   .col-lg-5 {
     -ms-flex-preferred-size: 41.6666666667%;
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
-    width: 41.6666666667%; }
+    width: 41.6666666667%;
+    padding: 1em; }
 
   .col-lg-6 {
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
     max-width: 50%;
-    width: 50%; }
+    width: 50%;
+    padding: 1em; }
 
   .col-lg-7 {
     -ms-flex-preferred-size: 58.3333333333%;
     flex-basis: 58.3333333333%;
     max-width: 58.3333333333%;
-    width: 58.3333333333%; }
+    width: 58.3333333333%;
+    padding: 1em; }
 
   .col-lg-8 {
     -ms-flex-preferred-size: 66.6666666667%;
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    width: 66.6666666667%; }
+    width: 66.6666666667%;
+    padding: 1em; }
 
   .col-lg-9 {
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
     max-width: 75%;
-    width: 75%; }
+    width: 75%;
+    padding: 1em; }
 
   .col-lg-10 {
     -ms-flex-preferred-size: 83.3333333333%;
     flex-basis: 83.3333333333%;
     max-width: 83.3333333333%;
-    width: 83.3333333333%; }
+    width: 83.3333333333%;
+    padding: 1em; }
 
   .col-lg-11 {
     -ms-flex-preferred-size: 91.6666666667%;
     flex-basis: 91.6666666667%;
     max-width: 91.6666666667%;
-    width: 91.6666666667%; }
+    width: 91.6666666667%;
+    padding: 1em; }
 
   .col-lg-12 {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    padding: 1em; }
 
   .col-lg-offset-0 {
     margin-left: 0%; }
@@ -658,79 +881,92 @@
     flex-grow: 1;
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
 
   .col-xl-1 {
     -ms-flex-preferred-size: 8.3333333333%;
     flex-basis: 8.3333333333%;
     max-width: 8.3333333333%;
-    width: 8.3333333333%; }
+    width: 8.3333333333%;
+    padding: 1em; }
 
   .col-xl-2 {
     -ms-flex-preferred-size: 16.6666666667%;
     flex-basis: 16.6666666667%;
     max-width: 16.6666666667%;
-    width: 16.6666666667%; }
+    width: 16.6666666667%;
+    padding: 1em; }
 
   .col-xl-3 {
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
     max-width: 25%;
-    width: 25%; }
+    width: 25%;
+    padding: 1em; }
 
   .col-xl-4 {
     -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    width: 33.3333333333%; }
+    width: 33.3333333333%;
+    padding: 1em; }
 
   .col-xl-5 {
     -ms-flex-preferred-size: 41.6666666667%;
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
-    width: 41.6666666667%; }
+    width: 41.6666666667%;
+    padding: 1em; }
 
   .col-xl-6 {
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
     max-width: 50%;
-    width: 50%; }
+    width: 50%;
+    padding: 1em; }
 
   .col-xl-7 {
     -ms-flex-preferred-size: 58.3333333333%;
     flex-basis: 58.3333333333%;
     max-width: 58.3333333333%;
-    width: 58.3333333333%; }
+    width: 58.3333333333%;
+    padding: 1em; }
 
   .col-xl-8 {
     -ms-flex-preferred-size: 66.6666666667%;
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    width: 66.6666666667%; }
+    width: 66.6666666667%;
+    padding: 1em; }
 
   .col-xl-9 {
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
     max-width: 75%;
-    width: 75%; }
+    width: 75%;
+    padding: 1em; }
 
   .col-xl-10 {
     -ms-flex-preferred-size: 83.3333333333%;
     flex-basis: 83.3333333333%;
     max-width: 83.3333333333%;
-    width: 83.3333333333%; }
+    width: 83.3333333333%;
+    padding: 1em; }
 
   .col-xl-11 {
     -ms-flex-preferred-size: 91.6666666667%;
     flex-basis: 91.6666666667%;
     max-width: 91.6666666667%;
-    width: 91.6666666667%; }
+    width: 91.6666666667%;
+    padding: 1em; }
 
   .col-xl-12 {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     max-width: 100%;
-    width: 100%; }
+    width: 100%;
+    padding: 1em; }
 
   .col-xl-offset-0 {
     margin-left: 0%; }

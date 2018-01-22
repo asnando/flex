@@ -1,19 +1,22 @@
 // Número máximo de colunas onde o layout deverá se basear.
 $number-of-cols: 12;
 
+$col-gutter: 1em;
+
 // Viewports
 $vps: (
   // Extra small devices (portrait phones, less than 576px)
   // No media query since this is the default in Bootstrap
-  "xs" 0px,
+  "" 0px,
+  "-xs" 0px,
   // Small devices (landscape phones, 576px and up)
-  "sm" 576px,
+  "-sm" 576px,
   // Medium devices (tablets, 768px and up)
-  "md" 768px,
+  "-md" 768px,
   // Large devices (desktops, 992px and up)
-  "lg" 992px,
+  "-lg" 992px,
   // Extra large devices (large desktops, 1200px and up)
-  "xl" 1200px
+  "-xl" 1200px
 );
 
 %display-flex {
@@ -37,6 +40,7 @@ $vps: (
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
   max-width: 100%;
+  width: 100%;
 }
 
 @mixin row-start {
@@ -105,6 +109,7 @@ $vps: (
   flex-basis: (100% / $number-of-cols) * $index;
   max-width: (100% / $number-of-cols) * $index;
   width: (100% / $number-of-cols) * $index;
+  padding: $col-gutter;
 }
 
 @mixin col-offset($index) {
@@ -122,44 +127,44 @@ $vps: (
 
   @media only screen and (min-width: $vp-width) {
 
-    .col-#{$vp-name} {
+    .col#{$vp-name} {
       @include col-original();
     }
 
     @for $index from 1 through $number-of-cols {
-      .col-#{$vp-name}-#{$index} {
+      .col#{$vp-name}-#{$index} {
         @include col($index);
       }
     }
 
     @for $index from 0 through ($number-of-cols - 1) {
-      .col-#{$vp-name}-offset-#{$index} {
+      .col#{$vp-name}-offset-#{$index} {
         @include col-offset($index);
       }
     }
 
-    .start-#{$vp-name} {
+    .start#{$vp-name} {
       @include row-start;
     }
-    .center-#{$vp-name} {
+    .center#{$vp-name} {
       @include row-center;
     }
-    .end-#{$vp-name} {
+    .end#{$vp-name} {
       @include row-end;
     }
-    .top-#{$vp-name} {
+    .top#{$vp-name} {
       @include row-top;
     }
-    .middle-#{$vp-name} {
+    .middle#{$vp-name} {
       @include row-middle;
     }
-    .bottom-#{$vp-name} {
+    .bottom#{$vp-name} {
       @include row-bottom;
     }
-    .around-#{$vp-name} {
+    .around#{$vp-name} {
       @include row-around;
     }
-    .between-#{$vp-name} {
+    .between#{$vp-name} {
       @include row-between;
     }
   }
