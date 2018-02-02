@@ -8,87 +8,112 @@
     <body>
         
         <!-- <div class="row">
-            <div class="col-xs"></div>
+            <div class="col"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-1"></div>
+            <div class="col-1"></div>
         </div>
             
         <div class="row center-xs end-md">
-            <div class="col-xs-2"></div>
+            <div class="col-2"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-3"></div>
+            <div class="col-3"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-4"></div>
+            <div class="col-4"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-5"></div>
+            <div class="col-5"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-6"></div>
+            <div class="col-6"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-7"></div>
+            <div class="col-7"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-8"></div>
+            <div class="col-8"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-9"></div>
+            <div class="col-9"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-10"></div>
+            <div class="col-10"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-11"></div>
+            <div class="col-11"></div>
         </div>
 
         <div class="row">
-            <div class="col-xs-12"></div>
+            <div class="col-12"></div>
         </div> -->
 
         <div class="row produto">
-            <div class="col-xs-6 col-md-4 col-lg-3">
-
+            <div class="col-6 col-md-4 col-lg-3 fill">
+                <div class="row center-xs middle-xs fill">
+                    <div class="col" style="height: 100%">
+                        <div class="img"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <div class="row center-xs middle-xs">
-                    <div class="col">
-                        <div class="row">Descrição do Produto</div>
-                        <div class="row">Número do Produto</div>
-                        <div class="row">Grupo: 0001</div>
+            <div class="col fill">
+                <div class="row fill">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                <label>Descrição do Produto bla</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">Número do Produto</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">Grupo: 0001</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </body>
 </html>
 
 <style>
-    [class^="col-"] {
+    [class^="col"] {
         background-color: magenta;
     }
-    [class^="row"] {
-        margin-top: 5px;
+    [class^="col"], label, p, h1, h2, h3, h4, h5 {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     .produto {
-        height: 200px;
+        height: 150px;
     }
-    .row .col-xs-6 {
-        border: 1px solid #CCC;
+    .fill {
+        width: 100%;
+        height: 100%;
+    }
+    .fill-hg {
+        height: 100%;
+    }
+    .fill-wd {
+        width: 100%;
+    }
+    .img {
+        background-color: black;
+        width: 100%;
         height: 100%;
     }
 </style>

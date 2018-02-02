@@ -1,10 +1,13 @@
 // Número máximo de colunas onde o layout deverá se basear.
 $number-of-cols: 12;
 
-$col-gutter: 1em;
+// Padding / Margin;
+$gutter-width: 1em;
+$gutter-compesation: ($gutter-width * 0.5) * -1;
+$half-gutter-width: $gutter-width * 0.5;
 
 // Viewports
-$vps: (
+$viewports: (
   // Extra small devices (portrait phones, less than 576px)
   // No media query since this is the default in Bootstrap
   "" 0px,
@@ -33,7 +36,57 @@ $vps: (
   flex: 0 0 auto;
 }
 
-@mixin col-original {
+@mixin flex-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: start;
+}
+
+@mixin flex-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@mixin flex-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: end;
+}
+
+@mixin flex-top {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+@mixin flex-middle {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@mixin flex-bottom {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+@mixin flex-around {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+@mixin flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@mixin col-base {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
@@ -41,67 +94,9 @@ $vps: (
   flex-basis: 0;
   max-width: 100%;
   width: 100%;
-}
-
-@mixin row-start {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  text-align: start;
-}
-
-@mixin row-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-
-@mixin row-end {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: end;
-}
-
-@mixin row-top {
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
-@mixin row-middle {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@mixin row-bottom {
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
-}
-
-@mixin row-around {
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-}
-
-@mixin row-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.row {
-  @extend %display-flex;
-  box-sizing: border-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  padding-right: $half-gutter-width;
+  padding-left: $half-gutter-width;
+  // text-align: center;
 }
 
 @mixin col($index) {
@@ -109,63 +104,129 @@ $vps: (
   flex-basis: (100% / $number-of-cols) * $index;
   max-width: (100% / $number-of-cols) * $index;
   width: (100% / $number-of-cols) * $index;
-  padding: $col-gutter;
+  padding-right: $half-gutter-width;
+  padding-left: $half-gutter-width;
+  // text-align: center;
 }
 
 @mixin col-offset($index) {
   margin-left: (100% / $number-of-cols) * $index;
 }
 
+@mixin col-hide() {
+  visibility: hidden;
+}
+
 [class*="col-"] {
   @extend %col-flex;
 }
 
-@each $vp in $vps {
+.row {
+  @extend %display-flex;
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: $gutter-compesation;
+  margin-left: $gutter-compesation;
+}
+
+@mixin make-col($vp-name, $index) {
+
+  .col#{$vp-name} {
+    @include col-base();
+  }
+
+  @for $index from 1 through $number-of-cols {
+    .col#{$vp-name}-#{$index} {
+      @include col($index);
+    }
+  }
+
+  @for $index from 0 through ($number-of-cols - 1) {
+    .col#{$vp-name}-offset-#{$index} {
+      @include col-offset($index);
+    }
+  }
+
+  .start#{$vp-name} {
+    @include flex-start;
+  }
+  .center#{$vp-name} {
+    @include flex-center;
+  }
+  .end#{$vp-name} {
+    @include flex-end;
+  }
+  .top#{$vp-name} {
+    @include flex-top;
+  }
+  .middle#{$vp-name} {
+    @include flex-middle;
+  }
+  .bottom#{$vp-name} {
+    @include flex-bottom;
+  }
+  .around#{$vp-name} {
+    @include flex-around;
+  }
+  .between#{$vp-name} {
+    @include flex-between;
+  }
+}
+
+@mixin make-hidden-col($vp-name) {
+  .col#{$vp-name}-hide,
+  .hide#{$vp-name} {
+    @include col-hide();
+  }
+}
+
+@mixin make-col-by-media($vp-name, $index, $vp-min, $vp-max) {
+  @if $vp-min and $vp-max {
+    @media screen and (min-width: $vp-min) and (max-width: $vp-max) {
+      @include make-hidden-col($vp-name);
+    }
+  } @else {
+    @media screen and (min-width: $vp-min) {
+      @include make-hidden-col($vp-name);
+    }
+  }
+  @media screen and (min-width: $vp-min) {
+    @include make-col($vp-name, $index);
+  }
+  // @media screen and (min-width: $vp-min) and (orientation: landscape) {
+  //   .col#{$vp-name}-landscape-hide {
+  //     @include col-hide();
+  //   }
+  // }
+}
+
+@each $vp in $viewports {
 
   $vp-name: nth($vp, 1);
   $vp-width: nth($vp, 2);
+  $index: index($viewports, $vp);
 
-  @media only screen and (min-width: $vp-width) {
-
-    .col#{$vp-name} {
-      @include col-original();
-    }
-
-    @for $index from 1 through $number-of-cols {
-      .col#{$vp-name}-#{$index} {
-        @include col($index);
-      }
-    }
-
-    @for $index from 0 through ($number-of-cols - 1) {
-      .col#{$vp-name}-offset-#{$index} {
-        @include col-offset($index);
-      }
-    }
-
-    .start#{$vp-name} {
-      @include row-start;
-    }
-    .center#{$vp-name} {
-      @include row-center;
-    }
-    .end#{$vp-name} {
-      @include row-end;
-    }
-    .top#{$vp-name} {
-      @include row-top;
-    }
-    .middle#{$vp-name} {
-      @include row-middle;
-    }
-    .bottom#{$vp-name} {
-      @include row-bottom;
-    }
-    .around#{$vp-name} {
-      @include row-around;
-    }
-    .between#{$vp-name} {
-      @include row-between;
-    }
+  @if $vp-name == "" {
+    $index: $index + 1;
   }
+
+  $min: nth(nth($viewports, $index), 2);
+
+  $max: null;
+
+  @if $index == length($viewports) {
+    $max: null;
+  } @else {
+    $max: nth(nth($viewports, $index + 1), 2);
+  }
+
+  @include make-col-by-media($vp-name, $index, $min, $max);
 }
