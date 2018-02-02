@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/fefranzoni/flex#readme",
   "devDependencies": {
-    "cssnano": "^3.10.0",
     "express": "^4.16.2",
     "ip": "^1.1.5"
   }
