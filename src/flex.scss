@@ -10,119 +10,219 @@ $half-gutter-width: $gutter-width * 0.5;
 $viewports: (
   // Extra small devices (portrait phones, less than 576px)
   // No media query since this is the default in Bootstrap
-  "" 0px,
-  "-xs" 0px,
+  "": 0px,
+  "xs": 0px,
   // Small devices (landscape phones, 576px and up)
-  "-sm" 576px,
+  "sm": 576px,
   // Medium devices (tablets, 768px and up)
-  "-md" 768px,
+  "md": 768px,
   // Large devices (desktops, 992px and up)
-  "-lg" 992px,
+  "lg": 992px,
   // Extra large devices (large desktops, 1200px and up)
-  "-xl" 1200px
+  "xl": 1200px
 );
 
-%display-flex {
-  display: flex;
-  display: box;
-  display: -webkit-box;
-  display: -ms-flexbox;
+// Devices and Orientation to create hidden elements;
+$devices-viewport: (
+  phone: map-get($viewports, "xs"),
+  phone-landscape: map-get($viewports, "sm"),
+  tablet: map-get($viewports, "md"),
+  tablet-landscape: map-get($viewports, "lg"),
+  desktop: map-get($viewports, "lg")
+) !default;
+
+/**
+ *  =============
+ *  FUNCTIONS
+ *  =============
+ *
+ * @function map-has-index(map, index)
+ *  @return Boolean;
+ *    :Detect if map has the index;
+ *
+ *  @function map-get-by-index(map, index)
+ *  @return value;
+ *    :Return the value inside an map from the given index;
+ *
+ */
+
+@function map-has-index($map, $index) {
+  @return not($index > length($map));
 }
 
-%col-flex {
-  box-sizing: border-box;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+@function map-get-by-index($map, $index) {
+  @each $obj in $map {
+    $ind: index($map, $obj);
+    @if $ind == $index {
+      @return $obj;
+    }
+  }
+  @return null;
 }
 
-@mixin flex-start {
+/**
+ *  =============
+ *  PLACEHOLDERS
+ *  =============
+ */
+
+%flex-start {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: start;
 }
 
-@mixin flex-center {
+%flex-center {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
 }
 
-@mixin flex-end {
+%flex-end {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: end;
 }
 
-@mixin flex-top {
+%flex-top {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
 }
 
-@mixin flex-middle {
+%flex-middle {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
 }
 
-@mixin flex-bottom {
+%flex-bottom {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
 }
 
-@mixin flex-around {
+%flex-around {
   -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
-@mixin flex-between {
+%flex-between {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
-@mixin col-base {
+%default-col {
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding-right: $half-gutter-width;
+  padding-left: $half-gutter-width;
+}
+
+%col-first-of-type {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
   max-width: 100%;
-  width: 100%;
-  padding-right: $half-gutter-width;
-  padding-left: $half-gutter-width;
-  // text-align: center;
 }
 
-@mixin col($index) {
+/**
+ *  =============
+ *  HELPER MIXINS
+ *  =============
+ */
+
+@mixin media($min, $max, $force: false) {
+  @if ($min == 0px and $force == false) or ($max and ($min == $max)) {
+    @content;
+  } @else if ($max) {
+    @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+  } @else {
+    @media only screen and (min-width: $min) { @content; }
+  }
+}
+
+/**
+ *  =============
+ *  MIXINS
+ *  =============
+ */
+
+@mixin col($index: $number-of-cols) {
   -ms-flex-preferred-size: (100% / $number-of-cols) * $index;
   flex-basis: (100% / $number-of-cols) * $index;
   max-width: (100% / $number-of-cols) * $index;
   width: (100% / $number-of-cols) * $index;
-  padding-right: $half-gutter-width;
-  padding-left: $half-gutter-width;
-  // text-align: center;
 }
 
 @mixin col-offset($index) {
   margin-left: (100% / $number-of-cols) * $index;
 }
 
-@mixin col-hide() {
+@mixin col-hide {
   visibility: hidden;
 }
 
-[class*="col-"] {
-  @extend %col-flex;
+// Extends the default column properties for each viewport
+// breakpoint. Extends for the column eg "col-xs-6" and
+// for the column offset eg "col-xs-offset-6".
+@mixin extend-default-col($col-name) {
+  @for $counter from 1 through $number-of-cols {
+    .#{$col-name}-#{$counter} { @extend %default-col; }
+  }
+  @for $counter from 1 through ($number-of-cols - 1) {
+    .#{$col-name}-offset-#{$counter} { @extend %default-col; }
+  }
 }
 
+// Create classes for columns and columns offsets for the given
+// viewport breakpoint. If the min-width is equals to 0px, then
+// the the classes are declarated outside the media query, otherwise
+// all the content goes inside the media query.
+@mixin make-col($vp, $index, $col-min, $col-max: null) {
+  $col-name: if($vp == "", "col", "col-#{$vp}");
+  @include media($col-min, $col-max) {
+    @for $counter from 1 through $number-of-cols {
+      .#{$col-name}-#{$counter} { @include col($counter); }
+    }
+    @for $counter from 1 through ($number-of-cols - 1) {
+      .#{$col-name}-offset-#{$counter} { @include col-offset($counter); }
+    }
+  }
+}
+
+// Creates alignment classes for the given viewport breakpoint.
+@mixin make-row-aligment($vp) {
+  @if ($vp != "") {
+    .start-#{$vp} { @extend %flex-start; }
+    .center-#{$vp} { @extend %flex-center; }
+    .end-#{$vp} { @extend %flex-end; }
+    .top-#{$vp} { @extend %flex-top; }
+    .middle-#{$vp} { @extend %flex-middle; }
+    .bottom-#{$vp} { @extend %flex-bottom; }
+    .around-#{$vp} { @extend %flex-around; }
+    .between-#{$vp} { @extend %flex-between; }
+  }
+}
+
+/**
+ *  =============
+ *  CLASSES
+ *  =============
+ */
 .row {
-  @extend %display-flex;
+  display: flex;
+  display: box;
+  display: -webkit-box;
+  display: -ms-flexbox;
   box-sizing: border-box;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
@@ -137,96 +237,49 @@ $viewports: (
   margin-left: $gutter-compesation;
 }
 
-@mixin make-col($vp-name, $index) {
+// Create the column classes with sizes, offsets and etc.
+@each $viewport in $viewports {
+  
+  $vp-name: nth($viewport, 1);
+  $col-index: index($viewports, $viewport);
+  $col-name: if($vp-name == "", "col", "col-#{$vp-name}");
+  $col-min: nth($viewport, 2);
+  $col-max: null;
 
-  .col#{$vp-name} {
-    @include col-base();
+  // Extends column default properties.
+  @include extend-default-col($col-name);
+
+  // Extends specific properties for the source column class
+  // of the actual viewport breakpoint.
+  .#{$col-name} { @extend %col-first-of-type; }
+
+  // Create the alignment classes with the viewport breakpoint suffix.
+  @include make-row-aligment($vp-name);
+
+  @if (map-has-index($viewports, ($col-index + 1))) {
+    $next: map-get-by-index($viewports, $col-index + 1);
+    $col-max: nth($next, 2);
   }
 
-  @for $index from 1 through $number-of-cols {
-    .col#{$vp-name}-#{$index} {
-      @include col($index);
-    }
-  }
+  // Create columns and columns offset;
+  @include make-col($vp-name, $col-index, $col-min, $col-max);
 
-  @for $index from 0 through ($number-of-cols - 1) {
-    .col#{$vp-name}-offset-#{$index} {
-      @include col-offset($index);
-    }
-  }
-
-  .start#{$vp-name} {
-    @include flex-start;
-  }
-  .center#{$vp-name} {
-    @include flex-center;
-  }
-  .end#{$vp-name} {
-    @include flex-end;
-  }
-  .top#{$vp-name} {
-    @include flex-top;
-  }
-  .middle#{$vp-name} {
-    @include flex-middle;
-  }
-  .bottom#{$vp-name} {
-    @include flex-bottom;
-  }
-  .around#{$vp-name} {
-    @include flex-around;
-  }
-  .between#{$vp-name} {
-    @include flex-between;
-  }
 }
 
-@mixin make-hidden-col($vp-name) {
-  .col#{$vp-name}-hide,
-  .hide#{$vp-name} {
-    @include col-hide();
-  }
-}
-
-@mixin make-col-by-media($vp-name, $index, $vp-min, $vp-max) {
-  @if $vp-min and $vp-max {
-    @media screen and (min-width: $vp-min) and (max-width: $vp-max) {
-      @include make-hidden-col($vp-name);
-    }
-  } @else {
-    @media screen and (min-width: $vp-min) {
-      @include make-hidden-col($vp-name);
-    }
-  }
-  @media screen and (min-width: $vp-min) {
-    @include make-col($vp-name, $index);
-  }
-  // @media screen and (min-width: $vp-min) and (orientation: landscape) {
-  //   .col#{$vp-name}-landscape-hide {
-  //     @include col-hide();
-  //   }
-  // }
-}
-
-@each $vp in $viewports {
-
-  $vp-name: nth($vp, 1);
-  $vp-width: nth($vp, 2);
-  $index: index($viewports, $vp);
-
-  @if $vp-name == "" {
-    $index: $index + 1;
-  }
-
-  $min: nth(nth($viewports, $index), 2);
-
+// Add "visibility: hidden" to all the devices listed in
+// $devices-viewport. Ex.: .hide-tablet
+@each $device in $devices-viewport {
+  $device-name: nth($device, 1);
+  $device-width: nth($device, 2);
+  $index: index($devices-viewport, $device);
+  $min: $device-width;
   $max: null;
-
-  @if $index == length($viewports) {
-    $max: null;
-  } @else {
-    $max: nth(nth($viewports, $index + 1), 2);
+  @if (map-has-index($devices-viewport, ($index + 1))) {
+    $next: map-get-by-index($devices-viewport, $index + 1);
+    $max: nth($next, 2);
+    @if ($min == $max) { $max: null; }
   }
-
-  @include make-col-by-media($vp-name, $index, $min, $max);
+  .hide-#{$device-name}, .#{$device-name}-hide {
+    @include media($min, $max, true) { @include col-hide; }
+  }
 }

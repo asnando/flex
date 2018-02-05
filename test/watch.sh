@@ -1,2 +1,2 @@
 #!/bin/bash
-sass --watch ../src/flex.scss:../dist/flex.css
+sass --watch ../src/flex.scss:../dist/flex.css --style "expanded"
