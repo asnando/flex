@@ -1,2 +1,2 @@
 # flex
-📦  Flexible CSS - (In Progress)
+📦  Flexible CSS
