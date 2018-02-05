@@ -269,17 +269,21 @@ $devices-viewport: (
 // Add "visibility: hidden" to all the devices listed in
 // $devices-viewport. Ex.: .hide-tablet
 @each $device in $devices-viewport {
+
   $device-name: nth($device, 1);
   $device-width: nth($device, 2);
   $index: index($devices-viewport, $device);
   $min: $device-width;
   $max: null;
+
   @if (map-has-index($devices-viewport, ($index + 1))) {
     $next: map-get-by-index($devices-viewport, $index + 1);
     $max: nth($next, 2);
     @if ($min == $max) { $max: null; }
   }
+
   .hide-#{$device-name}, .#{$device-name}-hide {
     @include media($min, $max, true) { @include col-hide; }
   }
+  
 }
