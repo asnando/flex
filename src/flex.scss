@@ -1,3 +1,5 @@
+@import "placeholders.scss";
+
 // Número máximo de colunas onde o layout deverá se basear.
 $number-of-cols: 12;
 
@@ -44,6 +46,10 @@ $devices-viewport: (
  *  @return value;
  *    :Return the value inside an map from the given index;
  *
+ *  @function map-get-next(map, index)
+ *  @return value;
+ *    :Return the value inside an map from the next index;
+ *
  */
 
 @function map-has-index($map, $index) {
@@ -60,61 +66,20 @@ $devices-viewport: (
   @return null;
 }
 
+@function map-get-next($map, $index) {
+  $index: $index + 1;
+  @if (map-has-index($map, $index)) {
+    @return map-get-by-index($map, $index);
+  } @else {
+    @return null;
+  }
+}
+
 /**
  *  =============
  *  PLACEHOLDERS
  *  =============
  */
-
-%flex-start {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  text-align: start;
-}
-
-%flex-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-
-%flex-end {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: end;
-}
-
-%flex-top {
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
-%flex-middle {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-%flex-bottom {
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
-}
-
-%flex-around {
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-}
-
-%flex-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
 
 %default-col {
   box-sizing: border-box;
@@ -140,6 +105,8 @@ $devices-viewport: (
  *  =============
  */
 
+// "force" means if media query needs to be declared even if
+// the viewport width equals to 0px;
 @mixin media($min, $max, $force: false) {
   @if ($min == 0px and $force == false) or ($max and ($min == $max)) {
     @content;
@@ -148,6 +115,7 @@ $devices-viewport: (
   } @else {
     @media only screen and (min-width: $min) { @content; }
   }
+
 }
 
 /**
@@ -201,7 +169,16 @@ $devices-viewport: (
 
 // Creates alignment classes for the given viewport breakpoint.
 @mixin make-row-aligment($vp) {
-  @if ($vp != "") {
+  @if ($vp == "") {
+    .row-start{ @extend %flex-start; }
+    .row-center { @extend %flex-center; }
+    .row-end { @extend %flex-end; }
+    .row-top { @extend %flex-top; }
+    .row-middle { @extend %flex-middle; }
+    .row-bottom { @extend %flex-bottom; }
+    .row-around { @extend %flex-around; }
+    .row-between { @extend %flex-between; }
+  } @else {
     .start-#{$vp} { @extend %flex-start; }
     .center-#{$vp} { @extend %flex-center; }
     .end-#{$vp} { @extend %flex-end; }
@@ -219,22 +196,16 @@ $devices-viewport: (
  *  =============
  */
 .row {
-  display: flex;
-  display: box;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  @extend %flex;
   box-sizing: border-box;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  @extend %flex-row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: $gutter-compesation;
-  margin-left: $gutter-compesation;
+  // margin-right: $gutter-compesation;
+  // margin-left: $gutter-compesation;
 }
 
 // Create the column classes with sizes, offsets and etc.
@@ -275,9 +246,9 @@ $devices-viewport: (
   $index: index($devices-viewport, $device);
   $min: $device-width;
   $max: null;
+  $next: map-get-next($devices-viewport, $index);
 
-  @if (map-has-index($devices-viewport, ($index + 1))) {
-    $next: map-get-by-index($devices-viewport, $index + 1);
+  @if $next {
     $max: nth($next, 2);
     @if ($min == $max) { $max: null; }
   }
