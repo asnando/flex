@@ -1,7 +1,7 @@
 /**
- *  ============================
+ *  =============
  *  FUNCTIONS
- *  ============================
+ *  =============
  *
  * @function map-has-index(map, index)
  *  @return Boolean;
@@ -11,57 +11,75 @@
  *  @return value;
  *    :Return the value inside an map from the given index;
  *
+ *  @function map-get-next(map, index)
+ *  @return value;
+ *    :Return the value inside an map from the next index;
+ *
  */
 /**
- *  ============================
+ *  =============
  *  PLACEHOLDERS
- *  ============================
+ *  =============
  */
-.start-xs, .start-sm, .start-md, .start-lg, .start-xl {
+.row {
+  display: flex;
+  display: box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+}
+
+.row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.row-start, .start-xs, .start-sm, .start-md, .start-lg, .start-xl {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: start;
 }
 
-.center-xs, .center-sm, .center-md, .center-lg, .center-xl {
+.row-center, .center-xs, .center-sm, .center-md, .center-lg, .center-xl {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
 }
 
-.end-xs, .end-sm, .end-md, .end-lg, .end-xl {
+.row-end, .end-xs, .end-sm, .end-md, .end-lg, .end-xl {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: end;
 }
 
-.top-xs, .top-sm, .top-md, .top-lg, .top-xl {
+.row-top, .top-xs, .top-sm, .top-md, .top-lg, .top-xl {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
 }
 
-.middle-xs, .middle-sm, .middle-md, .middle-lg, .middle-xl {
+.row-middle, .middle-xs, .middle-sm, .middle-md, .middle-lg, .middle-xl {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
 }
 
-.bottom-xs, .bottom-sm, .bottom-md, .bottom-lg, .bottom-xl {
+.row-bottom, .bottom-xs, .bottom-sm, .bottom-md, .bottom-lg, .bottom-xl {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
 }
 
-.around-xs, .around-sm, .around-md, .around-lg, .around-xl {
+.row-around, .around-xs, .around-sm, .around-md, .around-lg, .around-xl {
   -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
-.between-xs, .between-sm, .between-md, .between-lg, .between-xl {
+.row-between, .between-xs, .between-sm, .between-md, .between-lg, .between-xl {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -86,37 +104,27 @@
 }
 
 /**
- *  ============================
+ *  =============
  *  HELPER MIXINS
- *  ============================
+ *  =============
  */
 /**
- *  ============================
+ *  =============
  *  MIXINS
- *  ============================
+ *  =============
  */
 /**
- *  ============================
+ *  =============
  *  CLASSES
- *  ============================
+ *  =============
  */
 .row {
-  display: flex;
-  display: box;
-  display: -webkit-box;
-  display: -ms-flexbox;
   box-sizing: border-box;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -0.5em;
-  margin-left: -0.5em;
 }
 
 .col-1 {
