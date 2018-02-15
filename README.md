@@ -33,29 +33,29 @@ Alignment:
 Sizes:
 ```css
 /* Size: From 1 to 12 */
-.col-size, .col-viewport-size;
+.col-size, .col-viewport-size
 ```
 
 Offset:
 ```css
 /* Size: From 1 to 11 */
-.col-offset-size, .col-viewport-offset-size;
+.col-offset-size, .col-viewport-offset-size
 ```
 
 Hide Elements from viewport:
 ```css
 /* Hide when phone portrait */
-.hide-phone, .phone-hide;
+.hide-phone, .phone-hide
 
 /* Hide when phone landscape */
-.hide-phone-landscape, .phone-landscape-hide;
+.hide-phone-landscape, .phone-landscape-hide
 
 /* Hide when tablet portrait */
-.hide-tablet, .tablet-hide;
+.hide-tablet, .tablet-hide
 
 /* Hide when tablet landscape */
-.hide-tablet-landscape, .tablet-landscape-hide;
+.hide-tablet-landscape, .tablet-landscape-hide
 
 /* Hide when desktop */
-.hide-desktop, .desktop-hide;
+.hide-desktop, .desktop-hide
 ```
