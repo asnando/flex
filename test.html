@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Flex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="dist/flex.css" />
+</head>
+<body>
+
+  <div>
+    <h2>Viewport</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>-</th>
+          <th>min</th>
+          <th>max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>xs</td> <td>-</td> <td>576</td></tr>
+        <tr><td>sm</td> <td>576</td> <td>768</td></tr>
+        <tr><td>md</td> <td>768</td> <td>992</td></tr>
+        <tr><td>lg</td> <td>992</td> <td>1200</td></tr>
+        <tr><td>xl</td> <td>1200</td> <td>-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <div>
+    <h2>Structure</h2>
+    <div class="code">
+      &lt;div class="row"&gt;
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col"&gt;Content&lt;/div&gt;
+        <br>
+      &lt;/div&gt;
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  
+  <div>
+    <h2>Columns</h2>
+    <div class="color hg3 col"></div>
+    <div class="color hg3 col-12">12</div>
+    <div class="color hg3 col-11">11</div>
+    <div class="color hg3 col-10">10</div>
+    <div class="color hg3 col-9">9</div>
+    <div class="color hg3 col-8">8</div>
+    <div class="color hg3 col-7">7</div>
+    <div class="color hg3 col-6">6</div>
+    <div class="color hg3 col-5">5</div>
+    <div class="color hg3 col-4">4</div>
+    <div class="color hg3 col-3">3</div>
+    <div class="color hg3 col-2">2</div>
+    <div class="color hg3 col-1">1</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div id="alignment">
+
+    <h2>Alignment</h2>
+
+    <!--  -->
+    <h3>.row-start</h3>
+    <div class="row row-start">
+      <div class="col-4 hg3 color"></div>
+    </div>
+    <!--  -->
+
+    <br>
+
+    <!--  -->
+    <h3>.row-center</h3>
+    <div class="row row-center">
+      <div class="col-4 hg3 color"></div>
+    </div>
+    <!--  -->
+
+    <br>
+
+    <!--  -->
+    <h3>.row-end</h3>
+    <div class="row row-end">
+      <div class="col-4 hg3 color"></div>
+    </div>
+    <!--  -->
+
+    <br>
+
+    <!--  -->
+    <h3>.row-top</h3>
+    <div class="row hg6">
+      <div class="col-6 color no-border"></div>
+      <div class="col-6">
+        <div class="row hg6 row-top">
+          <div class="col color no-border hg3"></div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+
+    <br>
+
+    <!--  -->
+    <h3>.row-middle</h3>
+    <div class="row hg6">
+      <div class="col-6 color no-border"></div>
+      <div class="col-6">
+        <div class="row hg6 row-middle">
+          <div class="col color no-border hg3"></div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+
+    <br>
+
+    <!--  -->
+    <h3>.row-bottom</h3>
+    <div class="row hg6">
+      <div class="col-6 color no-border"></div>
+      <div class="col-6">
+        <div class="row hg6 row-bottom">
+          <div class="col color no-border hg3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div>
+    <h2>Offsets</h2>
+    <div class="color hg3 col">0</div>
+    <div class="color hg3 col-12">0</div>
+    <div class="color hg3 col-11 col-offset-1">1</div>
+    <div class="color hg3 col-10 col-offset-2">2</div>
+    <div class="color hg3 col-9 col-offset-3">3</div>
+    <div class="color hg3 col-8 col-offset-4">4</div>
+    <div class="color hg3 col-7 col-offset-5">5</div>
+    <div class="color hg3 col-6 col-offset-6">6</div>
+    <div class="color hg3 col-5 col-offset-7">7</div>
+    <div class="color hg3 col-4 col-offset-8">8</div>
+    <div class="color hg3 col-3 col-offset-9">9</div>
+    <div class="color hg3 col-2 col-offset-10">10</div>
+    <div class="color hg3 col-1 col-offset-11">11</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div id="distribution">
+    <h2>Distribution</h2>
+    <!--  -->
+    <h3>.row-around</h3>
+    <div class="row hg3 row-around">
+      <div class="color col-3">A</div>
+      <div class="color col-3">B</div>
+      <div class="color col-3">C</div>
+    </div>
+    <!--  -->
+    <br>
+    <!--  -->
+    <h3>.row-between</h3>
+    <div class="row hg3 row-between">
+      <div class="color col-3">A</div>
+      <div class="color col-3">B</div>
+      <div class="color col-3">C</div>
+    </div>
+    <!--  -->
+  </div>
+
+  <div class="divider"></div>
+
+  <div>
+    <h2>Hide</h2>
+
+    <h3>.hide-phone, .phone-hide</h3>
+    <div class="col-6 color hg3 hide-phone">Hide on Phone</div>
+
+    <h3>.hide-phone-landscape, .phone-landscape-hide</h3>
+    <div class="col-6 color hg3 hide-phone-landscape">Hide on Phone Landscape</div>
+
+    <h3>.hide-tabled, .tablet-hide</h3>
+    <div class="col-6 color hg3 hide-tablet">Hide on Tablet</div>
+
+    <h3>.hide-tablet-landscape, .tablet-landscape-hide</h3>
+    <div class="col-6 color hg3 hide-tablet-landscape">Hide on Tablet Landscape</div>
+
+    <h3>.hide-desktop, .desktop-hide</h3>
+    <div class="col-6 color hg3 hide-desktop">Hide on Desktop</div>
+
+  </div>
+
+</body>
+</html>
+
+<style>
+  body {
+    background-color: #F9F9F9;
+  }
+  h2, h3 {
+    color: blueviolet;
+  }
+  * {
+    font-family: 'Arial';
+  }
+  .color {
+    background-color: blueviolet;
+    border: 1px solid #F0F0F0;
+    color: #FFF;
+  }
+  .color.no-border {
+    border: none;
+  }
+  .hg3 {
+    height: 3em;
+    line-height: 3em;
+    text-indent: .5em;
+  }
+  .hg6 {
+    height: 6em;
+    line-height: 6em;
+    text-indent: .5em;
+  }
+  .wrapper {
+    background-color: #FFF;
+  }
+  .wd100 {
+    width: 100%;
+  }
+  .hg100 {
+    height: 100%;
+  }
+  .code {
+    background-color: blueviolet;
+    max-width: 50%;
+    padding: 1em;
+    color: #FFF;
+    border-radius: .3em;
+    line-height: 1.2em;
+  }
+  .divider {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0;
+    height: .1em;
+    width: 100%;
+    background-color: #DDD;
+  }
+  #alignment .row,
+  #distribution .row {
+    background-color: #EEE;
+  }
+  .row,
+  [class^="col"] {
+    border-radius: .2em;
+  }
+  table {
+    background-color: #FFF;
+    width: 20em;
+    border: 1px solid blueviolet;
+  }
+  table th, table td {
+    text-align: center;
+    color: blueviolet;
+  }
+  table > thead > tr > th,
+  table > tbody > tr:not(:last-child) > td {
+    border-bottom: 1px solid blueviolet;
+  }
+  table > thead > tr > th:not(:first-child),
+  table > tbody > tr > td:not(:first-child) {
+    border-left: 1px solid blueviolet;
+  }
+</style>

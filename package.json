@@ -7,7 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass flex.scss:./dist/flex.css --style \"expanded\"",
+    "minify": "postcss dist/flex.css > dist/flex.min.css",
+    "dist": "npm run sass; npm run minify"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 # flex
-📦  Flexible CSS
+📦  Flexible CSS - [Example](https://rawgit.com/fefranzoni/flex/master/test.html)
 
+Viewports:
 ```javascript
 // xs: Extra small devices (portrait phones, less than 576px)
 
